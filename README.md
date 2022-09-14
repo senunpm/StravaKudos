@@ -8,7 +8,8 @@ Added Options Menu:
 - Auto Refresh Page - If enabled it will refresh the page. 
 
 # Using
-You can download the extension from the [Chrome Web Store] (Original Plugin  was removed from Chrome Web Store). 
+You can download the extension from the [Chrome Web Store] (Original Plugin  was removed from Chrome Web Store).
+Install plugin and then update the options. 
 
 # Building
 `cd StravaKudos; npm i && npm run build`
