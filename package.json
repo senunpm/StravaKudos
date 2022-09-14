@@ -1,6 +1,6 @@
 {
   "name": "strava_kudos",
-  "verson": "0.0.3",
+  "verson": "0.0.4",
   "scripts": {
     "minify": "minify ./index.js > ./chrome-extension/index.js",
     "bundle": "cd ./chrome-extension && zip -j StravaKudos.zip index.js icon.png manifest.json",
