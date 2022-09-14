@@ -1,10 +1,11 @@
 {
   "name": "strava_kudos",
-  "verson": "0.0.4",
+  "version": "0.0.4",
   "scripts": {
     "minify": "minify ./index.js > ./chrome-extension/index.js",
+    "minifyoptions": "minify ./options.js > ./chrome-extension/options.js",
     "bundle": "cd ./chrome-extension && zip -j StravaKudos.zip index.js icon.png manifest.json",
-    "build": "npm run minify; npm run bundle"
+    "build": "npm run minify && npm run minifyoptions &&  npm run bundle"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

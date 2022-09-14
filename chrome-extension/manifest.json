@@ -1,21 +1,30 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "Strava Kudos",
-  "description": "Auto-Kudos activities",
-  "version": "0.13",
+  "description": "Auto-Kudos Activities",
+  "version": "0.1.21",
+  "permissions":["storage"],
 
-  "browser_action": {
-    "default_icon": "icon.png"
-  },
+  "action": {
+        "default_icon":{
+        "16": "icon.png",
+        "32":"icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      },
+      "default_title": "Strava Kudos"
+    },
   "icons": {
     "16": "icon.png",
+    "32": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
-
-  "update_url": "https://clients2.google.com/service/update2/crx",
-
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
   "content_scripts": [
     {
       "matches": ["https://www.strava.com/dashboard*","https://www.strava.com/athletes/*","https://www.strava.com/clubs/*"],

@@ -1,4 +1,8 @@
 (function() {
+  var myInterval;
+  var Refresh_Page_Interval = 60000; //in milliseconds
+  var Refresh_Interval_Active = false;
+  var Auto_Kudos = false; // in milliseconds
   let kudosBtns = []
     , KUDOS_INTERVAL = 1000 // in milliseconds
     , KUDOS_LOCKOUT = 100 // https://github.com/o2dazone/StravaKudos/issues/13#issuecomment-356319221
@@ -53,6 +57,7 @@
     btn.addEventListener('click', giveKudos);
     document.body.prepend(btn);
     updateCountNum();
+    restore_options();
   };
   /* eslint-disable-next-line */
   const mockFillKudo = btn => {
@@ -68,6 +73,16 @@
         // mockFillKudo(kudoBtn); /* for testing purposes only */
         kudoBtn.parentNode.click();
         giveKudos();
+      } else {
+        if(Refresh_Interval_Active)
+        {
+          console.log("Timeout Started:" + Date());
+          var currentDateObj = new Date();
+          var numberOfMlSeconds = currentDateObj.getTime();
+          var refresh_Date = new Date(numberOfMlSeconds + Number(Refresh_Page_Interval));
+          console.log("Refresh Time:" + refresh_Date);
+          setTimeout(refreshPage, Refresh_Page_Interval);
+        }
       }
     }, KUDOS_INTERVAL);
   };
@@ -86,6 +101,25 @@
     } else {
       btn.classList.add('hidden');
     }
+  };
+  
+  const refreshPage = () => {
+    console.log("Refresh page");
+    window.location.reload();
+    if(Auto_Kudos) {myInt = setTimeout(giveKudos, 1000);}
+  };
+  
+  const restore_options = () => {
+    // Use default values
+    chrome.storage.sync.get({
+      refreshInterval: '60000',
+      refreshIntervalActive: false,
+      autoKudosActive: false
+    }, function(items) {
+      Refresh_Page_Interval = items.refreshInterval;
+      Refresh_Interval_Active = items.refreshIntervalActive;
+      Auto_Kudos = items.autoKudosActive;
+    });
   };
 
   const getEligibleKudoButtons = () => {
@@ -118,6 +152,14 @@
       }, KUDOS_INTERVAL);
     }
   };
+// read config at startup
+const startProcess = () => {
+  console.log("AK:"+ Auto_Kudos + " RI:" + Refresh_Page_Interval +  " RIA:" + Refresh_Interval_Active);
+  if(Auto_Kudos) {
+    myInt = setTimeout(giveKudos, 1000);
+  }
+};
 
   init();
+  myInterval = setTimeout(startProcess,10000);
 }());
