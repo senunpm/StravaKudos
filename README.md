@@ -1,4 +1,4 @@
-## This chrome extension is no longer actively maintained.
+## Original extension is no longer actively maintained.
 [Read more about it](https://github.com/o2dazone/StravaKudos/issues/31)
 
 # What
