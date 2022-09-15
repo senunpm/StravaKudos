@@ -1,6 +1,6 @@
 // Saves options to chrome.storage
 function save_options() {
-  var refreshInterval = document.getElementById('refreshInterval').value;
+  var refreshInterval = Number(document.getElementById('refreshInterval').value);
   var refreshIntervalActive = document.getElementById('refreshIntervalActive').checked;
   var autoKudosActive = document.getElementById('autoKudos').checked;
 
@@ -23,7 +23,7 @@ function save_options() {
 function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-    refreshInterval: '60000',
+    refreshInterval: '60',
     refreshIntervalActive: false,
     autoKudosActive: false
   }, function(items) {

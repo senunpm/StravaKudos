@@ -112,11 +112,11 @@
   const restore_options = () => {
     // Use default values
     chrome.storage.sync.get({
-      refreshInterval: '60000',
+      refreshInterval: 60,
       refreshIntervalActive: false,
       autoKudosActive: false
     }, function(items) {
-      Refresh_Page_Interval = items.refreshInterval;
+      Refresh_Page_Interval = items.refreshInterval * 60000;
       Refresh_Interval_Active = items.refreshIntervalActive;
       Auto_Kudos = items.autoKudosActive;
     });
