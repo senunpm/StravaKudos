@@ -28,7 +28,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.strava.com/dashboard*","https://www.strava.com/athletes/*","https://www.strava.com/clubs/*"],
-      "js": ["./index.js","/options.js"]
+      "js": ["./index.js"]
     }
   ]
 }

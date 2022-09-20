@@ -163,5 +163,5 @@
   };
 
   init();
-  myInterval = setTimeout(startProcess,10000);
+  myInterval = setTimeout(startProcess,5000);
 }());

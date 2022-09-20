@@ -4,6 +4,7 @@
   "scripts": {
     "minify": "minify ./index.js > ./chrome-extension/index.js",
     "minifyoptions": "minify ./options.js > ./chrome-extension/options.js",
+    "devtest": "copy ./*.js ./chrome-extension/",
     "bundle": "cd ./chrome-extension && zip -j StravaKudos.zip *.js *.html icon*.png manifest.json",
     "build": "npm run minify && npm run minifyoptions &&  npm run bundle"
   },
