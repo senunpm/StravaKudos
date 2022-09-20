@@ -1,5 +1,6 @@
 (function() {
   var myInterval;
+  var myInt;
   var Refresh_Page_Interval = 60000; //in milliseconds
   var Refresh_Interval_Active = false;
   var Auto_Kudos = false; // in milliseconds
@@ -102,13 +103,13 @@
       btn.classList.add('hidden');
     }
   };
-  
+
   const refreshPage = () => {
     console.log("Refresh page");
     window.location.reload();
     if(Auto_Kudos) {myInt = setTimeout(giveKudos, 1000);}
   };
-  
+
   const restore_options = () => {
     // Use default values
     chrome.storage.sync.get({
@@ -152,13 +153,14 @@
       }, KUDOS_INTERVAL);
     }
   };
-// read config at startup
-const startProcess = () => {
-  console.log("AK:"+ Auto_Kudos + " RI:" + Refresh_Page_Interval +  " RIA:" + Refresh_Interval_Active);
-  if(Auto_Kudos) {
-    myInt = setTimeout(giveKudos, 1000);
-  }
-};
+
+  // read config at startup
+  const startProcess = () => {
+    console.log("AK:"+ Auto_Kudos + " RI:" + Refresh_Page_Interval +  " RIA:" + Refresh_Interval_Active);
+    if(Auto_Kudos) {
+      myInt = setTimeout(giveKudos, 1000);
+    }
+  };
 
   init();
   myInterval = setTimeout(startProcess,10000);

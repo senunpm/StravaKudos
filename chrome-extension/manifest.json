@@ -3,7 +3,7 @@
 
   "name": "Strava Kudos (timer)",
   "description": "Auto-Kudos Activities. Includes timer option to refresh and give kudos.",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "permissions":["storage"],
 
   "action": {
@@ -28,7 +28,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.strava.com/dashboard*","https://www.strava.com/athletes/*","https://www.strava.com/clubs/*"],
-      "js": ["./index.js"]
+      "js": ["./index.js","/options.js"]
     }
   ]
 }
