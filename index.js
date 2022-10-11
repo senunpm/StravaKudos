@@ -1,3 +1,7 @@
+/*
+  Kudos goes to https://github.com/o2dazone/ who is the original developer of the extension.
+
+*/
 (function() {
   var myInterval;
   var myInt;
@@ -129,7 +133,7 @@
 
     activityAvatars.forEach(avatar => {
       // activity card is not your own
-      if (!avatar.href.includes(viewingAthleteId)) {
+      if (!avatar.href.includes(viewingAthleteId) && !avatar.baseURI.includes('my_activity')) {
         const activityCard = avatar.closest('[class*="--child-entry"]') /* group activity */ ||
                              avatar.closest('[data-testid="web-feed-entry"]') /* solo activity */;
 
