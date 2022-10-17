@@ -1,7 +1,5 @@
-## Original extension is no longer actively maintained.
-[Read more about it](https://github.com/o2dazone/StravaKudos/issues/31)
 
-# What
+## What
 StravaKudos is a Chrome Extension that auto-kudos peoples activities.
 Added Options Menu:
 - Auto Kudos - If set to enable will press the autokudos button for you.
@@ -14,3 +12,6 @@ Install plugin and then update the options.
 # Building
 `cd StravaKudos; npm i && npm run build`
 * Note: If your environment does not already have `zip`, you may need to install it via `apt-get`, `brew` or whatever else you use.
+
+# About the Original extension.
+[Read more about it](https://github.com/o2dazone/StravaKudos/issues/31)
