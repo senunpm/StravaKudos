@@ -134,10 +134,12 @@
     activityAvatars.forEach(avatar => {
       // activity card is not your own
       if (!avatar.href.includes(viewingAthleteId) && !avatar.baseURI.includes('my_activity')) {
-        const activityCard = avatar.closest('[class*="--child-entry"]') /* group activity */ ||
-                             avatar.closest('[data-testid="web-feed-entry"]') /* solo activity */;
+        const activityCard = avatar.closest('[data-testid="web-feed-entry"]') /* solo activity */;
 
-        activityCard.querySelector(els) && buttons.push(activityCard.querySelector(els));
+        if(!activityCard.innerHTML.includes(viewingAthleteId))
+        {
+          activityCard.querySelector(els) && buttons.push(activityCard.querySelector(els));
+        }
       }
     });
 
